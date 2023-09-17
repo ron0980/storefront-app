@@ -48,6 +48,9 @@ A user-friendly storefront application that fetches and displays product data us
 - Highcharts for data visualization
 - Fake Store API for product and category data
 
+## Application Video
+https://github.com/ron0980/storefront-app/assets/145273833/52f368f6-4573-42e0-ad33-2e0152734246
+
 ## Usage
 
 1. Select a category from the dropdown to view products in that category.
