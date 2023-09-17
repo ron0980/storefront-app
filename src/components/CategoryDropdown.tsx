@@ -1,3 +1,5 @@
+// CategoryDropdown Component: Renders a dropdown to select a product category.
+// It updates the application state based on the category chosen and provides an option to clear the selection.
 import React from "react";
 import { useAppContext } from "../context/AppContext";
 import {
@@ -23,6 +25,11 @@ const StyledGridContainer = styled(Grid)`
   align-items: center;
 `;
 
+// Utility function to capitalize the first letter of a string.
+const capitalizeFirstLetter = (inputString: string) => {
+  return inputString.charAt(0).toUpperCase() + inputString.slice(1);
+};
+
 const CategoryDropdown = () => {
   const {
     selectedCategory,
@@ -31,13 +38,10 @@ const CategoryDropdown = () => {
     categories,
   } = useAppContext()!;
 
+  // Handler to update selected category and reset product selection.
   const handleCategoryChange = (event: any) => {
     setSelectedCategory(event.target.value);
     setSelectedProduct("");
-  };
-
-  const capitalizeFirstLetter = (inputString: string) => {
-    return inputString.charAt(0).toUpperCase() + inputString.slice(1);
   };
 
   return (

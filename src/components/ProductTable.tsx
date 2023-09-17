@@ -3,9 +3,12 @@ import { useAppContext } from "../context/AppContext";
 import React from "react";
 
 const ProductTable = () => {
-  const { products } = useAppContext()!;
+    const { products } = useAppContext()!;
+  // Define the columns for the DataGrid.
+  // This determines how the product data will be displayed in the table.
+
   const columns = [
-    { field: "title", headerName: "TITLE", width: 200, sortable: false },
+        { field: "title", headerName: "TITLE", width: 200, sortable: false },
     { field: "price", headerName: "PRICE", width: 100, sortable: false },
     {
       field: "description",
@@ -23,6 +26,8 @@ const ProductTable = () => {
       },
     },
   ];
+
+  // Custom rendering to extract the 'rate' from the nested 'rating' object
   return <DataGrid columns={columns} rows={products ?? []} />;
 };
 

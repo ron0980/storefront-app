@@ -1,3 +1,5 @@
+// App Component: Main entry point of the application.
+// It displays a header, category dropdown, product dropdown, and content display which either shows product details or a bar chart.
 import React from "react";
 import { AppProvider, useAppContext } from "./context/AppContext";
 import CategoryDropdown from "./components/CategoryDropdown";
@@ -8,11 +10,13 @@ import { Grid } from "@mui/material";
 import Header from "./components/Header";
 import { styled } from "styled-components";
 
+// AppContainer: Styled container for the entire app content.
 const AppContainer = styled.div`
   margin: 20px;
   padding: 20px;
 `;
 
+// ProductGrid: Styled grid for displaying the product dropdown.
 const ProductGrid = styled(Grid)`
   display: flex;
   flex-direction: row;
@@ -42,6 +46,8 @@ const App = () => {
   );
 };
 
+// ContentDisplay Component: Determines which content to display based on whether a product is selected.
+// If a product is selected, it displays its details. Otherwise, a bar chart is shown.
 const ContentDisplay = () => {
   const { selectedProduct } = useAppContext()!;
 

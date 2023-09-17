@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useFetch = (url: string) => {
+  // State for holding fetched data, loading status, and any potential error.
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);

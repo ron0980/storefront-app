@@ -1,3 +1,5 @@
+// BarChart Component: Displays a column chart comparing products based on user-selected metrics (Price or Rating).
+// It also shows a product table underneath the chart if a category has been selected.
 import React, { useEffect, useState } from "react";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -20,8 +22,9 @@ const BoldTypography = styled(Typography)`
 const BarChart = () => {
   const { products, selectedCategory } = useAppContext()!;
   const [chartData, setChartData] = useState([]);
-  const [selectedAxis, setSelectedAxis] = useState("Price");
+  const [selectedAxis, setSelectedAxis] = useState<"Price" | "Rating">("Price");
 
+  // Prepares the chart data based on the selected category and chosen metric (Price/Rating).
   const prepareChartData = () => {
     const categoryProducts =
       products &&
@@ -37,6 +40,7 @@ const BarChart = () => {
     return chartData;
   };
 
+  // React effect hook to update chart data when category, products, or selected metric changes.
   useEffect(() => {
     const newChartData: any = prepareChartData();
     setChartData(newChartData);

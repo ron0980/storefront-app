@@ -1,3 +1,5 @@
+// ProductDropdown Component: Displays a dropdown for product selection.
+// It allows users to choose a product and also offers a way to reset the selected product.
 import React from "react";
 import { useAppContext } from "../context/AppContext";
 import {
@@ -11,6 +13,7 @@ import {
 } from "@mui/material";
 import { styled } from "styled-components";
 
+// CustomButton: Styled button with a specific design for resetting the product selection.
 const CustomButton = styled(Button)`
   background-color: #0061a5;
   color: white;
@@ -18,14 +21,17 @@ const CustomButton = styled(Button)`
   padding: 15px !important;
 `;
 
+// StyledGridContainer: Container styled for aligning its child elements.
 const StyledGridContainer = styled(Grid)`
   display: flex;
   align-items: center;
 `;
 
 const ProductDropdown = () => {
+  // Using the context to access selected product, setter function, and the list of all products.
   const { selectedProduct, setSelectedProduct, products } = useAppContext()!;
 
+  // Function to handle changes in product selection from the dropdown.
   const handleProductChange = (event: any) => {
     setSelectedProduct(event.target.value);
   };
